@@ -22,7 +22,7 @@ var reserve = [
 ];
 
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "table.html"));
+    res.sendFile(path.join(__dirname, "home.html"));
   });
 
 app.get("/api/reservations", function(req, res) {
