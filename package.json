@@ -7,7 +7,10 @@
     "express": "^4.17.1",
     "path": "^0.12.7"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
