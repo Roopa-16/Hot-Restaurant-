@@ -23,13 +23,28 @@ var reserve = [
     }
 ];
 
+var waitListData = [
+    {
+        name: "random2",
+        phoneNum: "3490989098",
+        email: "ranodm",
+        uniqueID: " "
+    }
+];
+
+
+
 app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "home.html"));
-  });
+});
 
-  app.get("/table", function(req, res) {
+app.get("/table", function(req, res) {
     res.sendFile(path.join(__dirname, "table.html"));
-  });
+});
+  
+app.get("/reserve", function(req, res) {
+    res.sendFile(path.join(__dirname, "reserve.html"));
+});
 
 app.get("/api/reservations", function(req, res) {
     return res.json(reserve);
@@ -40,6 +55,18 @@ app.post("/api/reservations", function(req, res) {
     reserve.push(newReservation);
     res.json(newReservation);
 });
+
+app.post('/api/table', function(req, res)   {
+    if(reserve.length < 5)    {
+        reserve.push(req.body);
+        res.json(true);
+    } 
+    else  {
+        waitListData.push(req.body);
+        res.json(false);
+    }
+});
+
 
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
